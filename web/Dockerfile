@@ -1,20 +1,23 @@
-# Dockerfile para o Frontend (React)
-
-# Usar imagem oficial Node.js
 FROM node:20
 
-# Criar diretório de trabalho
 WORKDIR /app
 
-# Copiar package.json e instalar dependências
-COPY web/package.json web/package-lock.json ./
+# Copiar package.json do local correto
+# Ajuste abaixo para o caminho correto onde estão seus arquivos frontend
+COPY /package.json /package-lock.json ./
+# ou se estiver na raiz:
+# COPY package.json package-lock.json ./
+
 RUN npm install
 
-# Copiar o resto dos arquivos
-COPY web/ .
+# Copiar o resto dos arquivos frontend
+# Ajuste novamente para o local correto
+COPY . .
+# ou se estiver na raiz em uma pasta diferente:
+# COPY . .
 
-# Expor a porta padrão do React
+# Expor porta do frontend
 EXPOSE 3000
 
-# Rodar o app React
+# Comando para iniciar o frontend
 CMD ["npm", "start"]
