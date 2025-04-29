@@ -16,7 +16,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Copiar o projeto
-COPY Back-End/ .
+COPY backend/ .
 
 # Expor a porta padrão do Django
 EXPOSE 8000

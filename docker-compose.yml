@@ -14,9 +14,9 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   backend:
-    build: ./Back-End
+    build: ./backend
     volumes:
-      - ./Back-End:/app
+      - ./backend:/app
     ports:
       - "8000:8000"
     depends_on:
@@ -29,9 +29,9 @@ services:
       - DATABASE_PORT=5432
 
   frontend:
-    build: "./Front-End Web"
+    build: "./web"
     volumes:
-      - "./Front-End Web:/app"
+      - "./web:/app"
     ports:
       - "3000:3000"
     depends_on:

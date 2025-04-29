@@ -7,11 +7,11 @@ FROM node:20
 WORKDIR /app
 
 # Copiar package.json e instalar dependências
-COPY frontend/package.json frontend/package-lock.json ./
+COPY web/package.json web/package-lock.json ./
 RUN npm install
 
 # Copiar o resto dos arquivos
-COPY frontend/ .
+COPY web/ .
 
 # Expor a porta padrão do React
 EXPOSE 3000
